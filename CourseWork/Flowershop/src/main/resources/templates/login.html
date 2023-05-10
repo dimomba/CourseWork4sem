@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Вход</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="registration.css">
+    </head>
+    <body>
+
+        <div class="navitem"><a class="homelink" href="/">Главная</a></div>
+
+
+        <div class="loginhtmlcontainer">
+            <div>
+                <div class="flexcontainer" th:if="${param.error}">
+                    <div class="errorlogin">Неверный email или пароль.</div>
+                </div>
+
+                <div class="flexcontainer" th:if="${param.logout}">
+                    <div class="errorlogin">Выход выполнен</div>
+                </div>
+                <form th:action="@{/login}" method="post">
+                    <div class="flexcontainer">Вход</div>
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input type="text" id="inputusername" name="username" placeholder="Эл. почта" autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input type="password" id="inputpassword" name="password" placeholder="Пароль" autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div class="flexcontainer">
+                        <button type="submit" name="login-submit" id="login-submit">Войти</button>
+                    </div>
+
+                    <div class="flexcontainer">
+                        <a class="errorlogin" href="/" th:href="@{/registration}">Зарегистрироваться</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

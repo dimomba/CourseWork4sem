@@ -1,0 +1,153 @@
+body {
+    margin: 20px;
+    font-size: 24px;
+}
+a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    font-size: 24px;
+}
+a:hover {
+    background-color: darkgrey;
+}
+.homelink {
+    font-size: 24px;
+}
+.username {
+    padding: 5px;
+}
+.username::before {
+    content: "Пользователь: ";
+}
+.navitem {
+    margin: 20px;
+}
+
+
+/*admin.html*/
+.adminhtmlcontainer {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.allorderstext {
+    font-size: 30px;
+    margin: 20px;
+}
+thead {
+    width: 100%;
+}
+table {
+    border: 2px solid black;
+}
+th {
+    padding-right: 40px;
+}
+td, tr {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+td.countofflowers {
+    padding-left: 55px;
+}
+.btndelete {
+    background-color: #f60c06;
+    font-weight: 800;
+}
+
+
+/*order.html*/
+.orderhtmlcontainer {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.selectorofflower {
+    font-size: 24px;
+    width: 207px;
+    margin-left: 60px;
+}
+.counter {
+    font-size: 24px;
+    margin-left: 14px;
+    width: 200px;
+}
+.orderhtmlcontainer div div, .addtocartform div {
+    margin-bottom: 20px;
+}
+.btnaddtocartcontainer, .ordersuccestext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnaddtocart {
+    font-size: 24px;
+    background-color: #9fea94;
+    padding: 4px;
+}
+.btnaddtocart:hover {
+    background-color: darkgrey;
+}
+#priceforone, #cost {
+    font-size: 24px;
+}
+#priceforone {
+    width: 126px;
+}
+#cost {
+    width: 128px;
+}
+
+
+/*login.html*/
+.loginhtmlcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.errorlogin {
+    font-size: 24px;
+}
+#inputusername {
+    font-size: 24px;
+    width: 400px;
+}
+#inputpassword {
+    font-size: 24px;
+    width: 400px;
+}
+.flexcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+#login-submit {
+    font-size: 24px;
+    width: 100px;
+    background-color: #ccc;
+}
+#login-submit:hover {
+    background-color: darkgrey;
+}
+
+
+/*registration.html*/
+#signup-submit {
+    font-size: 24px;
+    width: 300px;
+    background-color: #ccc;
+}
+#signup-submit:hover {
+    background-color: darkgrey;
+}
+.inputwide {
+    font-size: 24px;
+    width: 400px;
+}

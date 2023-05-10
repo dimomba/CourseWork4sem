@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Все заказы</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="navitem"><a class="homelink" href="/">Главная</a></div>
+
+        <div class="username navitem" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
+
+        <div class="navitem"><a class="allorderslinkforadmin" href="#" sec:authorize="hasRole('ROLE_ADMIN') and isAuthenticated()" th:href="@{/admin}">Все заказы</a></div>
+        <div class="navitem"><a class="cartlink" href="#" sec:authorize="hasRole('ROLE_USER') and isAuthenticated()" th:href="@{/userOrders}">Корзина</a></div>
+        <div class="navitem"><a href="#" class="loginlink" sec:authorize="!isAuthenticated()" th:href="@{/login}">Войти</a></div>
+
+        <div class="navitem"><a href="#" class="logoutlink" sec:authorize="isAuthenticated()" th:href="@{/logout}">Выйти</a></div>
+
+
+        <div class="adminhtmlcontainer">
+
+            <div class="allorderstext">Все заказы</div>
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Цветок</th>
+                            <th>Количество</th>
+                            <th>Цена за 1 шт.</th>
+                            <th>Итоговая стоимость</th>
+                            <th>Фамилия</th>
+                            <th>Имя</th>
+                            <th>Эл. почта</th>
+                            <th>Номер телефона</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-th-each="order : ${orders}">
+                            <td data-th-text="${order.flower}"></td>
+                            <td class="countofflowers" data-th-text="${order.count}"></td>
+                            <td data-th-text="${order.priceforone}"></td>
+                            <td data-th-text="${order.cost}"></td>
+                            <td data-th-text="${order.user.lastName}"></td>
+                            <td data-th-text="${order.user.firstName}"></td>
+                            <td data-th-text="${order.user.email}"></td>
+                            <td data-th-text="${order.user.number}"></td>
+                            <td><a th:href = "@{/admin/{id}(id=${order.id})}" class="btndelete">Удалить</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Главная</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="navitem"><a class="homelink" href="/">Главная</a></div>
+
+        <div class="username navitem" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></div>
+
+        <div class="navitem"><a class="allorderslinkforadmin" href="#" sec:authorize="hasRole('ROLE_ADMIN') and isAuthenticated()" th:href="@{/admin}">Все заказы</a></div>
+        <div class="navitem"><a class="cartlink" href="#" sec:authorize="hasRole('ROLE_USER') and isAuthenticated()" th:href="@{/userOrders}">Мои заказы</a></div>
+        <div class="navitem"><a href="#" class="loginlink" sec:authorize="!isAuthenticated()" th:href="@{/login}">Войти</a></div>
+
+        <div class="navitem"><a href="#" id="btntoorder" class="chooseitemlink" th:href="@{/order}">Выбрать товар</a></div>
+
+        <div class="navitem"><a href="#" id="logout" class="logoutlink" sec:authorize="isAuthenticated()" th:href="@{/logout}">Выйти</a></div>
+    </body>
+</html>

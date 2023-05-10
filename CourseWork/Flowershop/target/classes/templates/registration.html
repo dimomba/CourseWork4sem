@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Регистрация</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="navitem"><a class="homelink" href="/">Главная</a></div>
+
+        <div class="loginhtmlcontainer">
+            <div>
+                <div class="flexcontainer" th:if="${param.success}">
+                    <div class="errorlogin" id="regsuccess">Регистрация прошла успешно</div>
+                </div>
+
+                <div class="flexcontainer">Регистрация</div>
+
+                <form th:action="@{/registration}" method="post" th:object="${user}">
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input class="inputwide" id="inputname" type="text" placeholder="Имя" th:field="*{firstName}" required autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input class="inputwide" id="inputsurname" type="text" placeholder="Фамилия" th:field="*{lastName}" required autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input class="inputwide" id="inputemail" type="text" placeholder="Эл. почта" th:field="*{email}" required autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input class="inputwide" id="inputphone" type="text" placeholder="Телефон" th:field="*{number}" required autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flexcontainer">
+                            <input class="inputwide" id="inputpassword" type="password" placeholder="Пароль" th:field="*{password}" required autofocus="autofocus">
+                        </div>
+                    </div>
+
+                    <div class="flexcontainer">
+                        <button type="submit" id="signup-submit">Зарегистрироваться</button>
+                    </div>
+
+                    <div class="flexcontainer">
+                        <a class="errorlogin" href="/" th:href="@{/login}">Войти</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
